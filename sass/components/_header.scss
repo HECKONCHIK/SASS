@@ -26,36 +26,47 @@
         color: var(--acent-color)
     }
 
-    .nav-link {
-        position: relative;
-        padding-top: 32px;
-        padding-bottom: 32px;
-        color: var(--title-text-color);
-        font-style: normal;
-        font-weight: 500;
-        font-size: 14px;
-        line-height: 1.1;
-        letter-spacing: 0.02em;
+    .nav-list .nav-link {
+            position: relative;
+            display: block;
+
+            padding-top: 32px;
+            padding-bottom: 32px;
+
+            color: var(--primery-text-color);
+
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 1.14;
+            letter-spacing: 0.02em;
+
+        &:hover,
+        &:focus{
+            color: var(--acent-color);
+        }
     }
+        
 
     .nav-list .nav-link.current {
         color: var(--acent-color);
+
+        &::after {
+            content: "";
+        
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        
+            width: 100%;
+            height: 5px;
+        
+            border-radius: 4px;
+        
+            background-color: var(--acent-color);
+        }
     }
 
-    .nav-list .nav-link.current::after {
-        content: "";
-
-        position: absolute;
-        bottom: 0;
-        left: 0;
-
-        width: 100%;
-        height: 5px;
-
-        border-radius: 4px;
-
-        background-color: var(--acent-color);
-    }
+    
 
     .contact-list a {
         color: var(--primery-text-color);
@@ -67,15 +78,18 @@
         letter-spacing: 0.02em;
     }
 
-    .nav-contact {
+    .nav-contact .nav-link {
         display: flex;
         align-items: center;
+
+        &:focus,
+        &:hover{
+            color: var(--acent-color);
+        }
     }
 
     .contact-list .nav-contact:focus,
-    .contact-list .nav-contact:hover,
-    .contact-icon:focus,
-    .contact-icon:hover {
+    .contact-list .nav-contact:hover{
         color: var(--acent-color);
         fill: var(--acent-color);
     }
@@ -92,6 +106,11 @@
         margin-right: 10px;
         fill: currentColor;
 
+    &:focus,
+    &:hover {
+        color: var(--acent-color);
+        fill: var(--acent-color);
+      }
     }
 
     .header-nav {
@@ -100,9 +119,10 @@
 
     .header-nav,
     .contact-list {
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        // display: flex;
+        // align-items: center;
+        // justify-content: flex-start;
+        @include centeredFlex (flex-start);
     }
 
     .nav-list {
